@@ -22,7 +22,7 @@ import { CategoryModule } from './category/category.module';
       synchronize: true,
       logging: false,
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
-      ssl: process.env.DB_SSL === 'true', // ativa ou desativa SSL
+      ssl: process.env.DB_SSL === 'true',
       extra: process.env.DB_SSL === 'true' ? {
       ssl: {
         rejectUnauthorized: false,

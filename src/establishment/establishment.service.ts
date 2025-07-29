@@ -4,6 +4,7 @@ import { UpdateEstablishmentDto } from './dto/update-establishment.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Establishment } from './entities/establishment.entity';
 import { Repository } from 'typeorm';
+import { promises } from 'dns';
 
 @Injectable()
 export class EstablishmentService {
@@ -20,11 +21,11 @@ export class EstablishmentService {
   }
 
   findAll() {
-    return `This action returns all establishment`;
+    return this.establishmentRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} establishment`;
+  async findOne(id: number): Promise<Establishment | null> {
+    return this.establishmentRepository.findOneBy({ id: id as any });
   }
 
   update(id: number, updateEstablishmentDto: UpdateEstablishmentDto) {

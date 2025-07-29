@@ -9,7 +9,7 @@ import { DeleteResult, Repository } from 'typeorm';
 export class CategoryService {
   constructor(
     @InjectRepository(Category)
-    private categoryRepository: Repository<Category>
+    private categoryRepository: Repository<Category>,
   ) {}
   async create(createCategoryDto: CreateCategoryDto): Promise<Category> {
     const category = this.categoryRepository.create(createCategoryDto);
@@ -24,8 +24,12 @@ export class CategoryService {
     return this.categoryRepository.findOneBy({ idCategory: id as string });
   }
 
-  async update(id: string, updateCategoryDto: UpdateCategoryDto): Promise<Category> {
-    await this.categoryRepository.update(id, updateCategoryDto);{
+  async update(
+    id: string,
+    updateCategoryDto: UpdateCategoryDto,
+  ): Promise<Category> {
+    await this.categoryRepository.update(id, updateCategoryDto);
+    {
       const updatedCategory = await this.findOne(id);
       if (!updatedCategory) {
         throw new Error(`Category with id ${id} not found after update.`);
@@ -37,5 +41,4 @@ export class CategoryService {
   async remove(idCategory: string): Promise<void> {
     await this.categoryRepository.delete(idCategory);
   }
-
 }

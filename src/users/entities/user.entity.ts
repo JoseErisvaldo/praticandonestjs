@@ -26,4 +26,3 @@ export class Users {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: string;
 }
-

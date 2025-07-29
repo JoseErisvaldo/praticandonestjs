@@ -10,7 +10,7 @@ import { CategoryModule } from './category/category.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -25,7 +25,7 @@ import { CategoryModule } from './category/category.module';
     }),
     UsersModule,
     ProductsModule,
-    CategoryModule
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

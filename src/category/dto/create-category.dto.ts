@@ -1,4 +1,4 @@
 export class CreateCategoryDto {
-    category: string;
-    description?: string;
+  category: string;
+  description?: string;
 }

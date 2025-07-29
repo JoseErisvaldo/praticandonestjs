@@ -14,7 +14,7 @@ export class ProductsService {
 
   create(createProductDto: CreateProductDto) {
     const product = this.userRepository.create(createProductDto);
-    if(product.user.id === undefined) {
+    if (product.user.id === undefined) {
       throw new Error('User must be associated with the product');
     }
     return this.userRepository.save(product);
@@ -28,17 +28,19 @@ export class ProductsService {
     return this.userRepository.findOneBy({ id: id as any });
   }
 
-async update(id: string, updateProductDto: UpdateProductDto): Promise<Product> {
-  await this.userRepository.update(id, updateProductDto);
-  const updatedProduct = await this.findOne(+id);
-  if (!updatedProduct) {
-    throw new Error(`Product with id ${id} not found after update.`);
+  async update(
+    id: string,
+    updateProductDto: UpdateProductDto,
+  ): Promise<Product> {
+    await this.userRepository.update(id, updateProductDto);
+    const updatedProduct = await this.findOne(+id);
+    if (!updatedProduct) {
+      throw new Error(`Product with id ${id} not found after update.`);
+    }
+    return updatedProduct;
   }
-  return updatedProduct;
-}
 
-
- async remove(id: number) {
+  async remove(id: number) {
     await this.userRepository.delete(id);
   }
 }

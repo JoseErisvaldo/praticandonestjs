@@ -22,6 +22,12 @@ import { CategoryModule } from './category/category.module';
       synchronize: true,
       logging: false,
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false, 
+        },
+      },
     }),
     UsersModule,
     ProductsModule,

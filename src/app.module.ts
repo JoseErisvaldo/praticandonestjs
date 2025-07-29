@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { ProductsModule } from './products/products.module';
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
     }),
     UsersModule,
-    ProductsModule
+    ProductsModule,
+    CategoryModule
   ],
   controllers: [AppController],
   providers: [AppService],

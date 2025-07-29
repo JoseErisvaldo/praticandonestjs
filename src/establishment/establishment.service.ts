@@ -11,9 +11,11 @@ export class EstablishmentService {
     @InjectRepository(Establishment)
     private readonly establishmentRepository: Repository<Establishment>,
   ) {}
-  
+
   create(createEstablishmentDto: CreateEstablishmentDto) {
-    const establishment = this.establishmentRepository.create(createEstablishmentDto);
+    const establishment = this.establishmentRepository.create(
+      createEstablishmentDto,
+    );
     return this.establishmentRepository.save(establishment);
   }
 

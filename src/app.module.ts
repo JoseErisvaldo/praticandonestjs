@@ -24,11 +24,14 @@ import { EstablishmentModule } from './establishment/establishment.module';
       logging: false,
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
       ssl: process.env.DB_SSL === 'true',
-      extra: process.env.DB_SSL === 'true' ? {
-      ssl: {
-        rejectUnauthorized: false,
-        },
-      } : {},
+      extra:
+        process.env.DB_SSL === 'true'
+          ? {
+              ssl: {
+                rejectUnauthorized: false,
+              },
+            }
+          : {},
     }),
     UsersModule,
     ProductsModule,

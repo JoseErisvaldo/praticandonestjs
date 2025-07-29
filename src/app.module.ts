@@ -22,12 +22,12 @@ import { CategoryModule } from './category/category.module';
       synchronize: true,
       logging: false,
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
-      ssl: true,
-      extra: {
-        ssl: {
-          rejectUnauthorized: false, 
+      ssl: process.env.DB_SSL === 'true', // ativa ou desativa SSL
+      extra: process.env.DB_SSL === 'true' ? {
+      ssl: {
+        rejectUnauthorized: false,
         },
-      },
+      } : {},
     }),
     UsersModule,
     ProductsModule,

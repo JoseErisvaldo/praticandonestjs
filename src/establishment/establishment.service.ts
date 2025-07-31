@@ -20,6 +20,7 @@ export class EstablishmentService {
     return this.establishmentRepository.save(establishment);
   }
 
+  
   findAll() {
     return this.establishmentRepository.find();
   }

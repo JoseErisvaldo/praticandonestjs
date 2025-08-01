@@ -14,9 +14,6 @@ export class ProductsService {
 
   create(createProductDto: CreateProductDto) {
     const product = this.userRepository.create(createProductDto);
-    if (product.user.id === undefined) {
-      throw new Error('User must be associated with the product');
-    }
     return this.userRepository.save(product);
   }
 

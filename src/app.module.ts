@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
 import { CategoryModule } from './category/category.module';
 import { EstablishmentModule } from './establishment/establishment.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { EstablishmentModule } from './establishment/establishment.module';
     ProductsModule,
     CategoryModule,
     EstablishmentModule,
+    OrdersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
